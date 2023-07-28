@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    command: bash -c "python manage.py migrate && gunicorn -c gunicorn_config.py helloworld.wsgi:application"
