@@ -1,0 +1,11 @@
+[Unit]
+Description=Gunicorn daemon for Your Django Project
+After=network.target
+
+[Service]
+User=hamed
+WorkingDirectory=/home/hamed/PycharmProjects/pythonProject1/helloworld
+ExecStart=/home/hamed/PycharmProjects/pythonProject1/env/bin/gunicorn -c gunicorn_config.py helloworld.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
